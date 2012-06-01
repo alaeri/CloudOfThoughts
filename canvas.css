@@ -1,0 +1,91 @@
+body{
+    margin: 0; 
+    padding: 0;
+    background-color:#bfbfbf;}
+body, html { 
+    height: 2000px;
+    width: 100%;
+    overflow-x: hidden;
+}
+#hidden{
+    display:none;
+}
+#input{
+    
+    position:absolute;
+    left:0px;
+    top:-100px;
+}
+#canvasdiv{
+    backgound-color:#ffffff;
+    position:relative;
+    width:1400px;
+    height: 2000px;
+    margin-left:auto;
+      margin-right:auto;
+}
+#right{
+    position:absolute;
+    top:0px;
+    right:0px;
+    width: 250px;
+    background-color:#b5b5b5;
+    height:2000px;
+    z-index:10;
+    box-shadow: 0 0 5px black;}
+
+#left{
+    
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity: 1;;
+    width: 250px;
+    background-color:#b5b5b5;
+    height:2000px;
+    z-index:10;
+    box-shadow: 0 0 5px black;
+}
+
+img {
+    margin-right:10px;
+    float:left;
+    width:50px;
+    height:50px;
+}
+.user {
+    font-family: rokkitt;
+    margin-top:20px;
+    position:static;
+    padding:10px;
+    background-color:#d1d1d1;
+    //width:200px;
+    height:50px;
+    font-size:12pt;
+    box-shadow:0px 0px 5px black;
+    vertical-align:middle;
+    margin-left:20px;
+    margin-right:30px;}
+
+.box {
+    margin-top:50px;
+    position:static;
+    padding:10px;
+    background-color:#eeeeee;
+    width:100px;
+    height:100px;
+    font-size:30pt;
+    box-shadow:0px 0px 5px black;
+    text-align:center;
+    vertical-align:middle;
+    line-height: 100px;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+#colorbox{
+    background-color:#000000;
+}
+#userdiv{
+    background-color:#e1e1e1;
+}

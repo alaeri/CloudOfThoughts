@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Delius+Unicase|Vidaloka|Questrial|Comfortaa|Rationale|Geostar+Fill|Rokkitt|Buda:300' rel='stylesheet' type='text/css'>
+    
+    <!-- beautiful design :) -->
+    <link href='canvas.css' rel='stylesheet' type='text/css'>
+    
+
+    <!-- <3 jQuery -->
+    <script type='application/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'> </script>
+    <!-- <3 jQuery cookie plugin -->
+    <script type='application/javascript' src="jquery-cookie.js"></script>
+    <!-- <3 Socket io -->
+    <script src="http://zombilical.org:3000/socket.io/socket.io.js"></script>
+    
+
+    <!-- TODO: Find a better name -->
+    <title>CloudOfThoughts</title>
+
+    <!-- OPEN GRAPH ie:facebook code ie:give me some cake-->
+    <meta property="og:title" content="Manu fait un site: CloudsOfThoughts" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://zombilical.org/canvas.html" />
+    <meta property="og:image" content="http://zombilical.org/facebook.png" />
+    <meta property="og:site_name" content="Zombilical CloudsOfThoughts" />
+    <meta property="fb:admins" content="828401667" />
+
+<!-- Update your html tag to include the itemscope and itemtype attributes -->
+<html itemscope itemtype="http://schema.org/Article">
+
+<!-- Add the following three tags inside head -->
+<meta itemprop="name" content="CloudofThougts">
+<meta itemprop="description" content="come and chat with me on cloudofthougts">
+<meta itemprop="image" content="http://zombilical.org/facebook.png">
+<!-- google Analytics -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27287783-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <!-- input area -->
+    <textarea id="input" cols=100 lines=10 ></Textarea>
+    
+    <!-- hidden div to do bad stuff inside eg: preload the fonts -->
+    <div id="hidden"></div>
+    
+    <!-- 3 layers of magic and no porn for one week -->
+    <div id="canvasdiv">
+      <canvas id="c" width=1400px height=2000px  style="z-index: 3;
+							position: absolute;
+							left:0px;
+							top:0px;
+							" ></canvas>
+      <canvas id="c3" width=1400px height=2000px  style="z-index: 2;
+							 position: absolute;				
+							 left:0px;
+							 top:0px; "></canvas>
+      <canvas id="c2" width=1400px height=2000px  style="z-index: 1;
+							 position: absolute;		
+							 left:0px;
+							 top:0px;
+							 background-color:#e1e1e1;"></canvas>
+    </div> 
+    <div id="blablabla">
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+      
+      <div class="fb-comments" data-href="http://zombilical.org/canvas.html" data-num-posts="2" data-width="250"></div>
+    </div>
+    
+    <!-- left block with nicks and avatars -->
+    <div id="left"> 
+      
+      <!-- facebook connect -->
+      <div id="fb-root" align="center" width=200 ></div>
+      <fb:login-button>Login with Facebook</fb:login-button>     
+      <script src="http://connect.facebook.net/en_US/all.js">
+      </script>
+      <!-- TODO: make this a function called by the callback of the coonnect button -->
+      <!-- TODO: find the number of your pretty sister -->
+      <script>
+        FB.init({ 
+        appId:'235503239829300', cookie:true, 
+        status:true, xfbml:true 
+        });
+        FB.api('/me', function(user) {
+        if(user != null && user.id !=null) {
+	var image = document.getElementById('image');
+        image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+        var name = document.getElementById('name');
+        name.innerHTML = user.name
+        
+	nick=user.name;
+	fbid=user.id;
+	}
+         });
+       </script>
+      
+<!-- div with the nick and avatar of the user -->
+<!-- I made all the avatars myself, I truly think they're beautiful. Dont crush my dream -->
+      
+      <!-- div with the other users info -->
+      <div id="users"></div>
+    </div>
+    
+
+    <!-- Toolbox -->
+    <div id="right">
+      <div class="box" id="colorbox"></div>
+      <div class="box" id="fontbox">T</div>
+      <div class="box" id="sizebox">aA</div>
+      <!-- TODO: give this box a little eye candy because she is beautiful inside -->
+      <div class="box" id="videobox">WTF</div>
+      <!-- facebook like button -->
+      <iframe src="http://www.facebook.com/plugins/like.php?app_id=235503239829300&amp;href=http%3A%2F%2Fzombilical.org%2Fcanvas.html&amp;send=false&amp;layout=standard&amp;width=200&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; margin-left:30px; height:200px; margin-top:30px; text-align:center;" allowTransparency="true"></iframe>
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone annotation="inline"></g:plusone>
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+    </div>
+    <!-- If you're looking for this, tell me, I would be happy to upload it to github -->
+    <script type="text/javascript" src="http://zombilical.org/canvas.js"/></script>
+
+</body>
+</html>
